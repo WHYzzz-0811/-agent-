@@ -164,7 +164,7 @@ uv run <脚本名>.py
 ```bash
 cd code/chatbi_mvp
 uv run pytest -q
-uv run python agent_planner.py "分析近半年的利润变化情况"
+uv run python agent_planner.py "分析近两年的利润变化情况"
 uv run pytest tests/test_database_runtime.py -q
 ```
 
