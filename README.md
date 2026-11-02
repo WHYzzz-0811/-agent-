@@ -72,7 +72,7 @@
 | `text2sql_v0.py` | Zero-shot 单文件原型 |
 | `text2sql_v1.py` | Few-shot 增强版本 |
 | `text2sql_v2.py` | COT + 结构化约束版本 |
-2026-10-28：完善Agent校验逻辑注释
+2026-10-28：完善Agent校验逻辑注释.
 
 ---
 
