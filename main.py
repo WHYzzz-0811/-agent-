@@ -3,12 +3,12 @@
 
 整合所有模块，提供命令行交互界面。
 这是 ChatBI Text2SQL 系统的统一入口，串联 query_parser → prompt_builder → llm_client → database → result_formatter 完整链路，
-并整合第 7 课规则修复、第 9 课指标知识注入、第 18 课 Schema Linking 和第 19 课指标 RAG。
+并整合规则修复、指标知识注入、第 18 课 Schema Linking 和指标 RAG。
 
-第11课增强：新增 run_stream 流式方法，按阶段 yield 事件，
+新增 run_stream 流式方法，按阶段 yield 事件，
 为 SSE 推送提供业务层能力。保留原有 run 方法不动，确保向后兼容。
 
-第20课增强：新增 use_schema_linking 和 use_indicator_rag 参数，
+新增 use_schema_linking 和 use_indicator_rag 参数，
 支持 Schema Linking（动态 Schema 注入）+ 指标 RAG（语义检索指标知识）。
 两者可独立开关，均有 fallback 机制保障稳定性。
 """

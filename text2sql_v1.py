@@ -1,5 +1,5 @@
 """
-第5课实战版本1：手写 Schema + Few-shot
+手写 Schema + Few-shot
 
 在 Zero-shot 基础上注入手写 Schema 和 Few-shot 示例。
 展示注入 Schema 和 Few-shot 示例后，LLM 生成 SQL 的准确性提升。

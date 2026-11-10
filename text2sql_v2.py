@@ -1,5 +1,5 @@
 """
-第5课实战版本2：COT + 结构化约束（ICIO 框架）
+COT + 结构化约束（ICIO 框架）
 
 在 v1 基础上增加 Chain-of-Thought 引导与结构化输出约束，
 展示 Prompt 工程进阶技巧的效果。
