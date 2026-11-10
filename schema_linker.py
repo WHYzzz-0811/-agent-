@@ -23,7 +23,7 @@ from join_resolver import (
 
 # ==================== Schema Linking Pipeline ====================
 def _score_table_by_keywords(query: str, table_name: str) -> int:
-    """基于17课 TABLE_KEYWORDS，计算查询与某张表的关键词匹配分数。"""
+    """基于 TABLE_KEYWORDS，计算查询与某张表的关键词匹配分数。"""
     keywords = TABLE_KEYWORDS.get(table_name, [])
     return sum(1 for kw in keywords if kw in query)
 
