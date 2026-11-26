@@ -28,7 +28,7 @@
 |------|------|---------|
 | `agent_planner.py` | 实现 Plan Generator、Step Executor、Result Summarizer，并串成可运行的 Plan-and-Execute Agent；第 24 课补充中间结果引用、重试、失败跳过、执行状态跟踪，第 25 课新增 `report` 输出并接入 `ReportGenerator`。当前 CLI 会把主链路进度日志输出到终端 `stderr`，便于观察任务执行到哪一步 | `PlanGenerator.build_plan()`、`StepExecutor.execute_plan()`、`PlanAndExecuteAgent.run()`、`uv run agent_planner.py --plan-only`、`uv run agent_planner.py --max-retries 1 --failure-policy skip --storage-backend temp_table` |
 | `report_generator.py` | 把多步执行结果整理为结构化分析报告；优先走 LLM 结构化 JSON，再渲染 Markdown，格式异常时回退模板化报告 | `ReportGenerator.generate()`、`AnalysisReport` |
-| `tests/test_agent_planner.py` | 验证计划生成、依赖上下文拼接、执行摘要输出，以及第 24-25 课新增的重试 / 跳过 / 状态记录 / temp table 存储 / report 输出 | `uv run pytest tests/test_agent_planner.py` |
+| `tests/test_agent_planner.py` | 验证计划生成、依赖上下文拼接、执行摘要输出，以及新增的重试 / 跳过 / 状态记录 / temp table 存储 / report 输出 | `uv run pytest tests/test_agent_planner.py` |
 | `tests/test_report_generator.py` | 验证报告解析与模板回退逻辑 | `uv run pytest tests/test_report_generator.py` |
 | `tests/test_query_decomposer.py` | 验证 Schema / 指标注入、维度合法性校验，以及复杂度超标后的自动重试 | `uv run pytest tests/test_query_decomposer.py` |
 | `tests/test_prompt_and_config.py` | 验证“最近 N 个月”仍按 `CURDATE()` 规则处理，以及长 SQL 输出 token 上限 | `uv run pytest tests/test_prompt_and_config.py` |
@@ -49,9 +49,9 @@
 
 | 模块 | 用途 | 关键接口 |
 |------|------|---------|
-| `indicator_knowledge.py` | 指标识别（关键词匹配，第 9 课原版） | `get_indicator_context(question) → {"detected_indicators", "indicator_block"}` |
-| `indicators.json` | 5 个核心指标定义（第 9 课原版） | JSON 格式 |
-| `indicator_retriever.py` | 指标 RAG 检索（语义检索，第 19 课升级版） | `retrieve_indicator_context(query) → {"detected_indicators", "indicator_block"}`、`retrieve_indicators(query) → [dict]` |
+| `indicator_knowledge.py` | 指标识别 | `get_indicator_context(question) → {"detected_indicators", "indicator_block"}` |
+| `indicators.json` | 5 个核心指标定义） | JSON 格式 |
+| `indicator_retriever.py` | 指标 RAG 检索 | `retrieve_indicator_context(query) → {"detected_indicators", "indicator_block"}`、`retrieve_indicators(query) → [dict]` |
 | `indicators_full.json` | 13 个核心指标完整知识库（含分层、依赖链、SQL 模板） | JSON 格式 |
 
 ### 向量检索与 Schema Linking 模块（
