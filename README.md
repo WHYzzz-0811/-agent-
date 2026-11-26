@@ -122,7 +122,7 @@ default = true
 ### 安装依赖与运行脚本
 
 ```bash
-# 安装本课所需依赖（示例）
+# 安装所需依赖（示例）
 uv add pymysql openai
 
 # 查看依赖树
